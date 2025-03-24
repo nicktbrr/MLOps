@@ -1,1 +1,6 @@
 .DS_Store
+Lab2/images
+Lab2/mlruns
+Lab2/save_data
+Lab2/mlflow.db
+data
