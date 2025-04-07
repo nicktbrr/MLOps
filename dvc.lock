@@ -1,12 +1,8 @@
 schema: '2.0'
 stages:
   prepare:
-    cmd: python Lab3/create_features_w_params.py
+    cmd: python src/preprocessing.py
     deps:
-    - path: Lab3/create_features_w_params.py
-      hash: md5
-      md5: 4c599dcbee8be853eef6b98ec6607292
-      size: 3469
     - path: data/adult.data
       hash: md5
       md5: 5d7c39d7b8804f071cdd1f2a7c460872
@@ -15,6 +11,10 @@ stages:
       hash: md5
       md5: 366c746021dc50ad9d933d2817612fc9
       size: 2003132
+    - path: src/preprocessing.py
+      hash: md5
+      md5: b213b607c51855dfbb66f2a2b02380a8
+      size: 2612
     params:
       params.yaml:
         features.chi2percentile: 50
