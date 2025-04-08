@@ -3,3 +3,12 @@
 /pipeline.pkl
 /processed_train_data.csv
 /processed_test_data.csv
+/X_train.parquet
+/X_val.parquet
+/X_test.parquet
+/y_train.parquet
+/y_val.parquet
+/y_test.parquet
+/X_train_pca.parquet
+/X_val_pca.parquet
+/X_test_pca.parquet
