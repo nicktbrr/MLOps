@@ -3,33 +3,48 @@ stages:
   prepare:
     cmd: python src/preprocessing.py
     deps:
-    - path: data/adult.data
+    - path: data/boston.csv
       hash: md5
-      md5: 5d7c39d7b8804f071cdd1f2a7c460872
-      size: 3974305
-    - path: data/adult.test
-      hash: md5
-      md5: 366c746021dc50ad9d933d2817612fc9
-      size: 2003132
+      md5: 578a5ce1821b5899262b970fffeae055
+      size: 41359
     - path: src/preprocessing.py
       hash: md5
-      md5: b213b607c51855dfbb66f2a2b02380a8
-      size: 2612
-    params:
-      params.yaml:
-        features.chi2percentile: 50
-        features.test_path: data/adult.test
-        features.train_path: data/adult.data
+      md5: 7017b5f52e5c29d78f8f8ee01e63a6a6
+      size: 1941
     outs:
-    - path: data/pipeline.pkl
+    - path: data/X_test.parquet
       hash: md5
-      md5: 2ff2f4415c961f1b4220d6b141e5f6f1
-      size: 6072
-    - path: data/processed_test_data.csv
+      md5: 1725d485c891ed0e0481ef0d5ac6c521
+      size: 15801
+    - path: data/X_test_pca.parquet
       hash: md5
-      md5: a59c8daac38fe1ca84dda2b458ee762a
-      size: 5409602
-    - path: data/processed_train_data.csv
+      md5: beebe6b9142efff82e9e21398bb7d337
+      size: 14545
+    - path: data/X_train.parquet
       hash: md5
-      md5: adf63b6ce20f7ee74f63d5dabb325226
-      size: 10829967
+      md5: 4a408b8447c8d00cad69eebb597e0ca1
+      size: 25656
+    - path: data/X_train_pca.parquet
+      hash: md5
+      md5: f8ba718112588fa63c3e2332154ba5d9
+      size: 31324
+    - path: data/X_val.parquet
+      hash: md5
+      md5: cb9758f09ab6926e6b6bb6b92aeb8fb8
+      size: 15883
+    - path: data/X_val_pca.parquet
+      hash: md5
+      md5: 9d81318b45d8c2b5daf031b785ebebae
+      size: 14473
+    - path: data/y_test.parquet
+      hash: md5
+      md5: 0230121c811cfb7822df3ab18c422346
+      size: 3227
+    - path: data/y_train.parquet
+      hash: md5
+      md5: f1fbe19aabc2424ab6d1786a5ae5d477
+      size: 4870
+    - path: data/y_val.parquet
+      hash: md5
+      md5: 34eef4ee4c0233ee35ec058c9baaaaf3
+      size: 3232
