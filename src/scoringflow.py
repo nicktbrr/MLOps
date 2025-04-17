@@ -11,10 +11,6 @@ from steps import (
 )
 
 class ScoringFlow(FlowSpec):
-    """
-    A modular scoring flow for regression models.
-    Each step is defined in a separate file for better reusability.
-    """
 
     dataset = Parameter('boston', help='dataset to use for training', default='../data/boston.csv')
     pca_dimensions = Parameter('pca_dimensions', help='number of PCA dimensions', default=9)
