@@ -3,7 +3,7 @@ import mlflow
 import uvicorn
 import pandas as pd
 app = FastAPI(
-    title="Reddit Comment Classifier",
+    title="Boston Housing Price Predictor",
     description="Classify Reddit comments as either 1 = Remove or 0 = Do Not Remove.",
     version="0.1",
 )

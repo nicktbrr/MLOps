@@ -13,6 +13,8 @@ X = {
     'data': data
 }
 
+print(X)
+
 try:
     response = requests.post(url, json=X)
     print(response.json())
