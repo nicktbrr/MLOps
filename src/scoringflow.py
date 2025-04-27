@@ -1,4 +1,4 @@
-from metaflow import FlowSpec, Parameter, step
+from metaflow import FlowSpec, Parameter, step, conda_base, resources, retry
 from steps import (
     start_step,
     transform_step,
@@ -21,6 +21,20 @@ class ScoringFlow(FlowSpec):
     and importantly for us the test set.
     """
     @step
+    @retry(times=2)
+    @resources(memory=1000)
+    @conda_base(
+    libraries={
+        'numpy': '1.23.5',
+        'pandas': '1.4.4',
+        'scikit-learn': '1.2.2',
+        'mlflow': '2.5.0',
+        "databricks-cli": "0.17.6",  # or latest stable version
+        "google-cloud-secret-manager": "2.7.0",
+        "hyperopt": "0.2.7",
+    },
+    python='3.10.9'
+    )
     def start(self):
         """Starting point - load data"""
         start_step(self)
@@ -31,6 +45,20 @@ class ScoringFlow(FlowSpec):
     It transforms the data with standard scaler.
     """
     @step
+    @retry(times=2)
+    @resources(memory=1000)
+    @conda_base(
+    libraries={
+        'numpy': '1.23.5',
+        'pandas': '1.4.4',
+        'scikit-learn': '1.2.2',
+        'mlflow': '2.5.0',
+        "databricks-cli": "0.17.6",  # or latest stable version
+        "google-cloud-secret-manager": "2.7.0",
+        "hyperopt": "0.2.7",
+    },
+    python='3.10.9'
+    )
     def transform_data(self):
         """Transform and split data"""
         transform_step(self)
@@ -41,6 +69,20 @@ class ScoringFlow(FlowSpec):
     It applies PCA dimensionality reduction.
     """
     @step
+    @retry(times=2)
+    @resources(memory=1000)
+    @conda_base(
+    libraries={
+        'numpy': '1.23.5',
+        'pandas': '1.4.4',
+        'scikit-learn': '1.2.2',
+        'mlflow': '2.5.0',
+        "databricks-cli": "0.17.6",  # or latest stable version
+        "google-cloud-secret-manager": "2.7.0",
+        "hyperopt": "0.2.7"
+    },
+    python='3.10.9'
+    )
     def dimensionality_reduction(self):
         """Apply PCA dimensionality reduction"""
         dimensionality_reduction_step(self)
@@ -51,6 +93,20 @@ class ScoringFlow(FlowSpec):
     It loads the best registered model from MLflow.
     """
     @step
+    @retry(times=2)
+    @resources(memory=1000)
+    @conda_base(
+    libraries={
+        'numpy': '1.23.5',
+        'pandas': '1.4.4',
+        'scikit-learn': '1.2.2',
+        'mlflow': '2.5.0',
+        "databricks-cli": "0.17.6",  # or latest stable version
+        "google-cloud-secret-manager": "2.7.0", 
+        "hyperopt": "0.2.7"
+    },
+    python='3.10.9'
+    )
     def load_model(self):
         """Load the best model from MLflow"""
         load_model_step(self)
@@ -61,6 +117,20 @@ class ScoringFlow(FlowSpec):
     It evaluates the model on the test set.
     """
     @step
+    @retry(times=2)
+    @resources(memory=1000)
+    @conda_base(
+    libraries={
+        'numpy': '1.23.5',
+        'pandas': '1.4.4',
+        'scikit-learn': '1.2.2',
+        'mlflow': '2.5.0',
+        "databricks-cli": "0.17.6",  # or latest stable version
+        "google-cloud-secret-manager": "2.7.0",
+        "hyperopt": "0.2.7"
+    },
+    python='3.10.9'
+    )
     def evaluate_model(self):
         """Evaluate the model"""
         evaluate_step(self)
@@ -71,6 +141,20 @@ class ScoringFlow(FlowSpec):
     It returns the end step.
     """
     @step
+    @retry(times=2)
+    @resources(memory=1000)
+    @conda_base(
+    libraries={
+        'numpy': '1.23.5',
+        'pandas': '1.4.4',
+        'scikit-learn': '1.2.2',
+        'mlflow': '2.5.0',
+        "databricks-cli": "0.17.6",  # or latest stable version
+        "google-cloud-secret-manager": "2.7.0",
+        "hyperopt": "0.2.7"
+    },
+    python='3.10.9'
+    )
     def end(self):
         """End step"""
         return end_step(self)

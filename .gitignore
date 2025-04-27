@@ -4,3 +4,5 @@ Lab2/mlruns
 Lab2/save_data
 Lab2/mlflow.db
 mlflow.db
+metaflow*
+.metaflow*

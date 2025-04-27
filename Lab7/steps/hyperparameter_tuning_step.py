@@ -32,7 +32,7 @@ def hyperparameter_tuning_step(self):
     best_val_rmse = float('inf')
 
     def objective(params):
-        mlflow.set_tracking_uri('https://mlops-141371485093.us-west2.run.app')
+        mlflow.set_tracking_uri('sqlite:///mlflow.db')
         mlflow.set_experiment('boston')
         with mlflow.start_run()as run:
             regressor_type = params['type']
